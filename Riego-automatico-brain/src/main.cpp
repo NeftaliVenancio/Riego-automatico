@@ -50,7 +50,7 @@ int si = 0;
 int dato = 0;
 
 int humedad_ideal = 80;
-int humedad_min = 60;
+int humedad_min = 0;
 
 void p_inicio()
 {
