@@ -341,32 +341,32 @@ void loop() {
 
   Serial1.listen();
 
-  if(Serial1.available()>0)
+  if(Serial.available()>0)
   {
-    dato = Serial1.read();
-    Serial.println(dato);
+    dato = Serial.read();
   }
-
+  else(Serial.print("Fallo"));
+  
   switch (dato)
   {
     case 'a': 
-              sa = Serial1.parseInt();
+              sa = Serial.parseInt();
       break;
     
     case 'b': 
-              sb = Serial1.parseInt();
+              sb = Serial.parseInt();
       break;
 
     case 'c': 
-              sc = Serial1.parseInt();
+              sc = Serial.parseInt();
       break;
 
     case 'd': 
-              sd = Serial1.parseInt();
+              sd = Serial.parseInt();
       break;
 
     case 'm': 
-              m = Serial1.parseInt();
+              m = Serial.parseInt();
       break;
 
     default:
