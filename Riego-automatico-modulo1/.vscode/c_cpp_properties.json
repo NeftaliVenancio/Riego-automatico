@@ -10,16 +10,16 @@
             "includePath": [
                 "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/include",
                 "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/src",
+                "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/.pio/libdeps/uno/Low-Power",
                 "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/variants/standard",
                 "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/.pio/libdeps/uno/LiquidCrystal_I2C",
-                "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/.pio/libdeps/uno/Low-Power",
                 "/Users/neftalivenancio/.platformio/lib/VirtualWire",
                 "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                 "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-                "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -27,16 +27,16 @@
                 "path": [
                     "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/include",
                     "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/src",
+                    "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/.pio/libdeps/uno/Low-Power",
                     "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/variants/standard",
                     "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/.pio/libdeps/uno/LiquidCrystal_I2C",
-                    "/Users/neftalivenancio/Desktop/repositorios/Riego-automatico/Riego-automatico-modulo1/.pio/libdeps/uno/Low-Power",
                     "/Users/neftalivenancio/.platformio/lib/VirtualWire",
                     "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                     "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                     "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                     "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-                    "/Users/neftalivenancio/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     ""
                 ]
             },
