@@ -20,7 +20,9 @@ long hum3 = 0; //Humedad del sensor 3
 long hum4 = 0; //Humedad del sensor 4
 long hum5 = 0; //Humedad del sensor 5
 
-int n = 5; //Ventana de muestreo
+long humprom = 0;
+
+int n = 50; //Ventana de muestreo
 int i = 0; //variable de iteraciones
 
 int hum_ideal = 80; //Porcentaje de humedad relativa ideal para el crecimiento de la huerta
@@ -64,10 +66,32 @@ void lec_hum()
   hum4 = hum4/(n+1); //Filtro m¡promedio para obtener una lectura estable de s4
   //hum5 = hum5/(n+1); //Filtro m¡promedio para obtener una lectura estable de s5
 
-  hum1 = map(hum1,0,1024,0,100); //Ajusta los valores de s1 de 0 - 1024 en un rango de 0 a 100%
-  hum2 = map(hum2,0,1024,0,100); //Ajusta los valores de s2 de 0 - 1024 en un rango de 0 a 100% 
-  hum3 = map(hum3,0,1024,0,100); //Ajusta los valores de s3 de 0 - 1024 en un rango de 0 a 100%
-  hum4 = map(hum4,0,1024,0,100); //Ajusta los valores de s4 de 0 - 1024 en un rango de 0 a 100%
+  if(hum1 > 100)
+  {
+    hum1 = 100;
+  }
+
+  if(hum2 > 100)
+  {
+    hum2 = 100;
+  }
+
+  if(hum3 > 100)
+  {
+    hum3 = 100;
+  }
+
+  if(hum4 > 100)
+  {
+    hum4 = 100;
+  }
+
+  humprom = (hum1 + hum2 + hum3 + hum4)/4;
+
+  //hum1 = map(hum1,0,1024,0,100); //Ajusta los valores de s1 de 0 - 1024 en un rango de 0 a 100%
+  //hum2 = map(hum2,0,1024,0,100); //Ajusta los valores de s2 de 0 - 1024 en un rango de 0 a 100% 
+  //hum3 = map(hum3,0,1024,0,100); //Ajusta los valores de s3 de 0 - 1024 en un rango de 0 a 100%
+  //hum4 = map(hum4,0,1024,0,100); //Ajusta los valores de s4 de 0 - 1024 en un rango de 0 a 100%
   //hum5 = map(hum5,0,1024,0,100); //Ajusta los valores de s5 de 0 - 1024 en un rango de 0 a 100%
   
   
@@ -91,6 +115,7 @@ void loop() {
   //LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);  //Pone en modo ahorro de energía el arduino
 
   lec_hum();
+
   Serial.print('a');
   Serial.print(hum1);
 
@@ -103,6 +128,9 @@ void loop() {
   Serial.print('d');
   Serial.print(hum4);
 
+  Serial.print('m');
+  Serial.print(humprom);
+
   Serial1.print('a');
   Serial1.print(hum1);
 
@@ -114,5 +142,8 @@ void loop() {
 
   Serial1.print('d');
   Serial1.print(hum4);
+
+  Serial1.print('m');
+  Serial1.print(humprom);
 
 }
