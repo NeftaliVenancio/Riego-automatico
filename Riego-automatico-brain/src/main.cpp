@@ -34,8 +34,8 @@ int next = 10;
 int home = 9;
 int prev = 8;
 
-int m = 9; //Promedio cama 1
-int n = 10; //Promedio cama 2
+int m = 90; //Promedio cama 1
+int n = 80; //Promedio cama 2
 
 int sa = 0;
 int sb = 0;
@@ -50,7 +50,71 @@ int si = 0;
 int dato = 0;
 
 int humedad_ideal = 80;
-int humedad_min = 60;
+int humedad_min = 40;
+
+int cont = 0;
+
+
+void regado_cama1()
+{
+
+  digitalWrite(l_rojo,HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Secuencia de regado");
+  lcd.setCursor(0, 1);
+  lcd.print("cama 1, espere");
+
+  digitalWrite(valvula1,HIGH);
+
+  i = t_regado;
+
+  while (i > 0)
+  {
+    lcd.setCursor(7, 2);
+    lcd.print(i);
+    lcd.print(" Segundos");
+    delay(1000);
+    i--;
+  }
+  
+  
+  digitalWrite(l_rojo,LOW);
+  digitalWrite(valvula1,LOW);
+
+}
+
+void regado_cama2()
+{
+
+  digitalWrite(l_rojo,HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Secuencia de regado");
+  lcd.setCursor(0, 1);
+  lcd.print("cama 2, espere");
+
+  digitalWrite(valvula2,HIGH);
+
+  i = t_regado;
+
+  while (i > 0)
+  {
+    lcd.setCursor(7, 2);
+    lcd.print(i);
+    lcd.print(" Segundos");
+    delay(1000);
+    i--;
+  }
+  
+  digitalWrite(l_rojo,LOW);
+  digitalWrite(valvula2,LOW);
+
+}
+
+
 
 void p_inicio()
 {
@@ -239,74 +303,25 @@ if(digitalRead(next))
     while (digitalRead(home))
     {
 
+      cont++;
+      if(cont > 100)
+      {
+        regado_cama1();
+        break;
+      }
+
     }
+    cont = 0;
     c_dis = 1;
 
       digitalWrite(l_azul,LOW);
       delay(100);
   }
 
-
+  
 }
 
-void regado_cama1()
-{
 
-  digitalWrite(l_rojo,HIGH);
-
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Secuencia de regado");
-  lcd.setCursor(0, 1);
-  lcd.print("cama 1, espere");
-
-  digitalWrite(valvula1,HIGH);
-
-  i = t_regado;
-
-  while (i > 0)
-  {
-    lcd.setCursor(7, 2);
-    lcd.print(i);
-    lcd.print(" Segundos");
-    delay(1000);
-    i--;
-  }
-  
-  
-  digitalWrite(l_rojo,LOW);
-  digitalWrite(valvula1,LOW);
-
-}
-
-void regado_cama2()
-{
-
-  digitalWrite(l_rojo,HIGH);
-
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Secuencia de regado");
-  lcd.setCursor(0, 1);
-  lcd.print("cama 2, espere");
-
-  digitalWrite(valvula2,HIGH);
-
-  i = t_regado;
-
-  while (i > 0)
-  {
-    lcd.setCursor(7, 2);
-    lcd.print(i);
-    lcd.print(" Segundos");
-    delay(1000);
-    i--;
-  }
-  
-  digitalWrite(l_rojo,LOW);
-  digitalWrite(valvula2,LOW);
-
-}
 
 void setup() {
 
@@ -341,32 +356,32 @@ void loop() {
 
   Serial1.listen();
 
-  if(Serial1.available()>0)
+  if(Serial.available()>0)
   {
-    dato = Serial1.read();
-    Serial.println(dato);
+    dato = Serial.read();
   }
-
+  else(Serial.print("Fallo"));
+  
   switch (dato)
   {
     case 'a': 
-              sa = Serial1.parseInt();
+              sa = Serial.parseInt();
       break;
     
     case 'b': 
-              sb = Serial1.parseInt();
+              sb = Serial.parseInt();
       break;
 
     case 'c': 
-              sc = Serial1.parseInt();
+              sc = Serial.parseInt();
       break;
 
     case 'd': 
-              sd = Serial1.parseInt();
+              sd = Serial.parseInt();
       break;
 
     case 'm': 
-              m = Serial1.parseInt();
+              //m = Serial.parseInt();
       break;
 
     default:
@@ -411,11 +426,6 @@ void loop() {
   if (m < humedad_min)
   {
     regado_cama1();
-  }
-
-  if (n < humedad_min)
-  {
-    regado_cama2();
   }
   
   
